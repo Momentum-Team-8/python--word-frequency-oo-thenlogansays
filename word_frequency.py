@@ -7,67 +7,20 @@ STOP_WORDS = [
 
 class FileReader:
     def __init__(self, filename):
-        pass
+        self.file = filename
 
     def read_contents(self):
         """
         This should read all the contents of the file
         and return them as one string.
         """
-        raise NotImplementedError("FileReader.read_contents")
+        self.open = open(self.file)
+        self.read = self.text.read
+        return self.read
+        print(f"{self.read}")
+        #raise NotImplementedError("FileReader.read_contents")
 
-
-class WordList:
-    def __init__(self, text):
-        pass
-
-    def extract_words(self):
-        """
-        This should get all words from the text. This method
-        is responsible for lowercasing all words and stripping
-        them of punctuation.
-        """
-        raise NotImplementedError("WordList.extract_words")
-
-    def remove_stop_words(self):
-        """
-        Removes all stop words from our word list. Expected to
-        be run after extract_words.
-        """
-        raise NotImplementedError("WordList.remove_stop_words")
-
-    def get_freqs(self):
-        """
-        Returns a data structure of word frequencies that
-        FreqPrinter can handle. Expected to be run after
-        extract_words and remove_stop_words. The data structure
-        could be a dictionary or another type of object.
-        """
-        raise NotImplementedError("WordList.get_freqs")
-
-
-class FreqPrinter:
-    def __init__(self, freqs):
-        pass
-
-    def print_freqs(self):
-        """
-        Prints out a frequency chart of the top 10 items
-        in our frequencies data structure.
-
-        Example:
-          her | 33   *********************************
-        which | 12   ************
-          all | 12   ************
-         they | 7    *******
-        their | 7    *******
-          she | 7    *******
-         them | 6    ******
-         such | 6    ******
-       rights | 6    ******
-        right | 6    ******
-        """
-        raise NotImplementedError("FreqPrinter.print_freqs")
+FileReader("one-today.txt")
 
 
 if __name__ == "__main__":
